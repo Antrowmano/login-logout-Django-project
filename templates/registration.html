@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Registration</title>
+  </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Login-Logout-Registration</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="/">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login/">Login</a>
+                    </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+        <h1  class="text-center my-3 pt-3">New User Registration Form</h1>
+        <div class="container my-5">
+            <form method="POST">
+                {% csrf_token %}
+                <table   style="margin-left:auto;margin-right:auto;" bg-dark>
+                    <tr>
+                        <td>User Name</td>
+                        <td><input type="text" placeholder="Enter Username" name='Username' required></td> 
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="Email" placeholder="name@gmail.com" name='Email'required></td> 
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" placeholder=" Enter Password"  name='Pwd'></td> 
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td><input type="text" placeholder="Enter Age"  name='Age'></td> 
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td><input type="radio" value="M" name='Gender'> Male |
+                        <input type="radio" value="F" name='Gender'> Female </td> 
+                    </tr>
+                    <tr>
+                        <td>Marital Status</td>
+                        <td><select name='MartialStatus'>
+                            <option value="married">Married</option>
+                            <option value="Bachelor">Bachelor</option>
+                            <option value="Divorced">Divorced</option>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td><br><br><Button class="btn btn-primary" type="submit">Registration</td>
+                    </tr>
+                </table>
+            {% if messages %}
+            {% for msg in messages %}
+            <b>{{msg}}</b>
+            {% endfor %}
+            {% endif %}
+            <br></br>
+            <h5  class="text-center my-3 pt-3">If you Already a Member <a href="login/">Login</a><h5>
+            </form>
+        </div>
+        <footer class="text-center table text-light bg-dark fixed-bottom my-0 py-3" >
+
+            <div ><h5>© COPYRIGHT 2021 | All rights reserved</h5>
+            </div>
+       
+
+        </footer>
+    </body>
+</html>
